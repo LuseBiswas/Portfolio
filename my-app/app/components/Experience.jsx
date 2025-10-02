@@ -119,18 +119,33 @@ export default function Experience() {
   const tabs = [
     { key: "work", label: "Work", icon: BriefcaseBusiness },
     { key: "education", label: "Education", icon: GraduationCap },
-    { key: "volunteering", label: "Volunteering", icon: HeartHandshake },
+    // { key: "volunteering", label: "Volunteering", icon: HeartHandshake },
   ];
 
   // ---- Replace with your real data ----
   const data = {
     work: [
       {
+        company: "Artesian Software Technologies LLP",
+        role: "Software Development Engineer (SDE)",
+        period: "2025 — Present",
+        location: "Mohali, India",
+        companyUrl: "https://www.artesian.io/",
+        bullets: [
+          "Designed and built a scalable intranet web app (HTML/CSS/JS, Python/Django) serving 1,500+ users.",
+          "Integrated Wagtail CMS for dynamic content workflows, improving admin efficiency by ~25%.",
+          "Deployed with Kamal + Docker for consistent environments and seamless scaling.",
+          "Currently building a Super-Ecommerce platform using MedusaJS + Django."
+        ],
+        badges: ["Django", "Wagtail", "Python", "JavaScript", "MedusaJS", "Docker", "Kamal"]
+      },
+      
+      {
         company: "InterviewBee AI",
-        role: "Founding Full-Stack Engineer",
-        period: "2024 — Present",
+        role: "Founding Engineer",
+        period: "2024",
         location: "Remote · India",
-        companyUrl: "#",
+        companyUrl: "https://interviewbee.ai/",
         bullets: [
           "Built AI mock interview platform (voice + analytics) used by 150k+ users.",
           "Reduced response latency by 65% via streaming + queueing.",
@@ -140,42 +155,45 @@ export default function Experience() {
       },
       {
         company: "Earthfields",
-        role: "Full-Stack Engineer",
-        period: "2023 — 2024",
-        location: "Hybrid",
+        role: "Full-Stack Developer (Contract)",
+        period: "2023",
+        location: "Remote . India",
+        companyUrl: "https://earthfields.in/",
         bullets: [
-          "Launched land toolkit MVP; geodata overlays & verification workflows.",
-          "Set up CI/CD and infra hardening; ~25% perf gain across core flows.",
+          "Developed scalable software with Next.js and JavaScript; improved overall performance ~25% via efficient rendering and API integration.",
+          "Designed and built Admin frontend and backend from scratch (Next.js, TypeScript, SQL), enabling robust management for 100+ administrators.",
+          "Collaborated via GitLab and Postman to design/test RESTful APIs, increasing third-party integration efficiency by ~15%."
         ],
-        badges: ["React", "GCP", "Maps", "Supabase", "RLS"],
+        badges: ["Next.js", "TypeScript", "JavaScript", "SQL", "REST APIs", "GitLab", "Postman"]
       },
     ],
     education: [
       {
-        company: "Your University",
-        role: "B.Tech / BSc (Computer Science)",
-        period: "2019 — 2023",
-        location: "City",
+        company: "Chandigarh University",
+        role: "B.Tech (Computer Science & Engineering)",
+        period: "2021 — 2025",
+        location: "Punjab, India",
         bullets: [
-          "Graduated with coursework in DS&A, DBMS, Operating Systems.",
-          "Led developer club; organized 5+ hackathons.",
+          "CGPA: 7.33.",
+          "Coursework: Data Structures & Algorithms, DBMS, Operating Systems."
         ],
-        badges: ["Merit Scholarship", "Club Lead"],
-      },
+        badges: ["CSE", "CGPA 7.33"]
+      }
+      
     ],
-    volunteering: [
-      {
-        company: "Open-Source Mentorship",
-        role: "Mentor",
-        period: "2022 — Present",
-        location: "Remote",
-        bullets: [
-          "Reviewed PRs and guided contributors on JS/TS patterns.",
-          "Ran weekly office hours on DX and testing basics.",
-        ],
-        badges: ["Community", "Mentorship"],
-      },
-    ],
+    // volunteering: [
+    //   {
+    //     company: "Open-Source Mentorship",
+    //     role: "Mentor",
+    //     period: "2022 — Present",
+    //     location: "Remote",
+    //     bullets: [
+    //       "Reviewed PRs and guided contributors on JS/TS patterns.",
+    //       "Ran weekly office hours on DX and testing basics.",
+    //     ],
+    //     badges: ["Community", "Mentorship"],
+    //   },
+    // ],
   };
   // --------------------------------------
 
