@@ -22,11 +22,11 @@ function TabButton({ id, label, Icon, active, onClick, onKeyDown, tabRef }) {
       onClick={onClick}
       onKeyDown={onKeyDown}
       className={[
-        "group relative -mb-px inline-flex items-center gap-2 py-3 text-sm",
+        "group relative -mb-px inline-flex items-center gap-[clamp(6px,1vw,10px)] py-[clamp(10px,1.4vw,16px)] text-[clamp(12px,1.4vw,16px)]",
         active ? "font-medium text-[#33322e]" : "text-neutral-500 hover:text-[#33322e]"
       ].join(" ")}
     >
-      <Icon className="size-4" aria-hidden />
+      <Icon className="w-[clamp(14px,1.6vw,18px)] h-[clamp(14px,1.6vw,18px)]" aria-hidden />
       <span>{label}</span>
       <span
         className={[
@@ -40,8 +40,8 @@ function TabButton({ id, label, Icon, active, onClick, onKeyDown, tabRef }) {
 
 function Badge({ children }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-md border border-neutral-200 bg-neutral-50 px-2 py-1 text-xs text-neutral-700">
-      <Tag className="size-3" aria-hidden />
+    <span className="inline-flex items-center gap-[clamp(3px,0.5vw,6px)] rounded-md border border-neutral-200 bg-neutral-50 px-[clamp(6px,0.8vw,10px)] py-[clamp(3px,0.6vw,6px)] text-[clamp(10px,1.2vw,14px)] text-neutral-700">
+      <Tag className="w-[clamp(10px,1.2vw,14px)] h-[clamp(10px,1.2vw,14px)]" aria-hidden />
       {children}
     </span>
   );
@@ -59,42 +59,42 @@ function ExperienceItem({
   return (
     <div className="relative rounded-xl border border-neutral-200 bg-white shadow-sm">
       {/* header */}
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2 p-4">
-        <div className="flex items-center gap-2 text-[#33322e]">
-          <Building2 className="size-4 text-neutral-600" aria-hidden />
-          <h3 className="text-[15px] font-semibold">{company}</h3>
+      <div className="flex flex-wrap items-center gap-x-[clamp(8px,1.2vw,14px)] gap-y-[clamp(6px,0.8vw,10px)] p-[clamp(12px,1.6vw,20px)]">
+        <div className="flex items-center gap-[clamp(6px,0.8vw,10px)] text-[#33322e]">
+          <Building2 className="w-[clamp(14px,1.6vw,18px)] h-[clamp(14px,1.6vw,18px)] text-neutral-600" aria-hidden />
+          <h3 className="text-[clamp(13px,1.5vw,18px)] font-semibold">{company}</h3>
         </div>
         <span className="text-neutral-400">•</span>
-        <div className="text-[15px] text-[#33322e]">{role}</div>
+        <div className="text-[clamp(13px,1.5vw,18px)] text-[#33322e]">{role}</div>
       </div>
 
-      <div className="border-t border-neutral-200 px-4 py-3 text-sm text-neutral-700">
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+      <div className="border-t border-neutral-200 px-[clamp(12px,1.6vw,20px)] py-[clamp(10px,1.4vw,16px)] text-[clamp(12px,1.3vw,16px)] text-neutral-700">
+        <div className="flex flex-wrap items-center gap-x-[clamp(12px,1.6vw,20px)] gap-y-[clamp(6px,0.8vw,10px)]">
           {location && (
-            <div className="inline-flex items-center gap-1">
-              <MapPin className="size-4 text-neutral-600" aria-hidden />
+            <div className="inline-flex items-center gap-[clamp(4px,0.6vw,8px)]">
+              <MapPin className="w-[clamp(14px,1.6vw,18px)] h-[clamp(14px,1.6vw,18px)] text-neutral-600" aria-hidden />
               <span>{location}</span>
             </div>
           )}
           {period && (
-            <div className="inline-flex items-center gap-1">
-              <CalendarDays className="size-4 text-neutral-600" aria-hidden />
+            <div className="inline-flex items-center gap-[clamp(4px,0.6vw,8px)]">
+              <CalendarDays className="w-[clamp(14px,1.6vw,18px)] h-[clamp(14px,1.6vw,18px)] text-neutral-600" aria-hidden />
               <span>{period}</span>
             </div>
           )}
           {companyUrl && (
             <a
               href={companyUrl}
-              className="inline-flex items-center gap-1 text-neutral-700 underline decoration-neutral-300 underline-offset-4 hover:text-neutral-900"
+              className="inline-flex items-center gap-[clamp(4px,0.6vw,8px)] text-neutral-700 underline decoration-neutral-300 underline-offset-4 hover:text-neutral-900"
             >
-              <LinkIcon className="size-4" aria-hidden />
+              <LinkIcon className="w-[clamp(14px,1.6vw,18px)] h-[clamp(14px,1.6vw,18px)]" aria-hidden />
               Visit
             </a>
           )}
         </div>
 
         {bullets.length > 0 && (
-          <ul className="mt-3 list-disc space-y-1 pl-5 leading-relaxed">
+          <ul className="mt-[clamp(10px,1.4vw,16px)] list-disc space-y-[clamp(4px,0.6vw,8px)] pl-[clamp(16px,2vw,24px)] leading-relaxed">
             {bullets.map((b) => (
               <li key={b} className="text-neutral-700">
                 {b}
@@ -104,7 +104,7 @@ function ExperienceItem({
         )}
 
         {badges.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-2">
+          <div className="mt-[clamp(10px,1.4vw,16px)] flex flex-wrap gap-[clamp(6px,0.8vw,10px)]">
             {badges.map((t) => (
               <Badge key={t}>{t}</Badge>
             ))}
@@ -196,17 +196,17 @@ export default function Experience() {
   };
 
   return (
-    <section aria-labelledby="experience-heading" className="mt-[clamp(28px,3.5vw,56px)]">
+    <section aria-labelledby="experience-heading" className="mt-[clamp(32px,4.5vw,80px)]">
       <h2
         id="experience-heading"
-        className="font-dm-sans text-[clamp(22px,2.4vw,28px)] font-bold text-[#33322e]"
+        className="font-dm-sans font-semibold text-[#33322e] text-[clamp(18px,2.6vw,40px)]"
       >
         Experience
       </h2>
 
       {/* Tabs */}
-      <div className="mt-3 border-b border-neutral-200">
-        <div role="tablist" aria-label="Experience categories" className="flex items-center gap-6">
+      <div className="mt-[clamp(12px,1.8vw,24px)] border-b border-neutral-200">
+        <div role="tablist" aria-label="Experience categories" className="flex items-center gap-[clamp(16px,2.4vw,32px)]">
           {tabs.map((t, i) => (
             <TabButton
               key={t.key}
@@ -232,9 +232,9 @@ export default function Experience() {
             role="tabpanel"
             aria-labelledby={`tab-${t.key}`}
             hidden={!isActive}
-            className="pt-4"
+            className="pt-[clamp(16px,2.2vw,32px)]"
           >
-            <div className="grid gap-4">
+            <div className="grid gap-[clamp(12px,1.6vw,20px)]">
               {data[t.key].map((item, idx) => (
                 <ExperienceItem key={`${item.company}-${idx}`} {...item} />
               ))}
