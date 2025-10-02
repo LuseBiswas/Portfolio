@@ -11,20 +11,16 @@ export default function Hero() {
       </h1>
 
       <div className="mx-auto mt-10 max-w-8xl">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_1fr]">
+        <div className="grid grid-cols-1 items-start gap-44 lg:grid-cols-[1.1fr_1fr]">
           {/* Left: Text */}
           <div className="max-w-2xl">
             <h2 className="font-dm-sans text-3xl sm:text-4xl font-semibold text-[#33322e]">
-              Notion Expert
+              Software Devloper
             </h2>
-            <p className="mt-4 text-lg leading-8 text-neutral-700">
-              I&apos;m a <strong>certified expert</strong> in Notion, helping busy
-              people like you become organized and productive. I design and
-              optimize Notion workspaces to be clutter-free, so you can{" "}
-              <strong>focus on what&apos;s important</strong> and{" "}
-              <strong>get things done</strong>. My work has benefited over{" "}
-              <strong>100,000 customers</strong>, including freelancers,
-              entrepreneurs, and business owners.
+            <p className="mt-4 text-lg leading-8 text-[#33322e]">
+            I’m a <strong>full-stack engineer</strong> specializing in <strong>AI-driven web apps</strong> that scale. <br /> 
+            I ship fast, reliable products with <strong>Next.js, Django, PostgreSQL</strong>, and modern cloud, then squeeze out performance—like <strong>65% lower response latency</strong> and <strong>30% higher engagement</strong>. <br /> 
+            I’ve delivered features used by <strong>150k+ users</strong> and <strong>100+ admins</strong> across products for InterviewBee AI, Earthfields, and Artesian.
             </p>
 
             <div className="mt-8">
@@ -38,15 +34,14 @@ export default function Hero() {
           </div>
 
           {/* Right: Image (bigger) */}
-          <div className="lg:justify-self-end w-full">
+          <div className="lg:justify-self-end w-full -mt-24">
             <Image
               src="/images/hero.png"
               alt="Person working on a laptop"
-              width={350}
-              height={350}
+              width={400}
+              height={400}
               priority
-              sizes="(min-width: 1024px) 300px, 90vw"
-              className="w-full max-w-[300px] md:max-w-[280px] lg:max-w-[350px] h-auto "
+              className="w-auto h-[380px]"
             />
           </div>
         </div>
