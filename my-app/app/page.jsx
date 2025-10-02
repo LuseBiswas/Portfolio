@@ -1,4 +1,5 @@
 import Hero from "./components/Hero";
+import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
       <Hero />
       <div className="mx-auto w-full max-w-[min(1600px,92vw)] px-[clamp(20px,6vw,128px)]">
         <Skills />
+        <Projects />
       </div>
     </main>
   );
