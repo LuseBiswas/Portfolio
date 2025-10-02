@@ -4,9 +4,8 @@ export default function Home() {
   return (
     <>
     <div>
-    <h1 className="text-3xl font-extrabold underline text-green-500">
-      Hello world!
-    </h1>
+    <h1 className="font-dm-sans">Your heading</h1>
+<p className="font-dm-sans font-bold">Bold text</p>
     </div>
     </>
   );
