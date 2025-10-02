@@ -10,7 +10,7 @@ export default function Hero() {
         Portfolio
       </h1>
 
-      <div className="mx-auto mt-10 max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto mt-10 max-w-8xl">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_1fr]">
           {/* Left: Text */}
           <div className="max-w-2xl">
