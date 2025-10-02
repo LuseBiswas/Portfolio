@@ -54,14 +54,14 @@ function ProjectCard({ project }) {
       className="block rounded-xl border border-neutral-200 bg-white shadow-sm transition-shadow hover:shadow-md focus:outline-none focus:ring-2 focus:ring-neutral-400"
     >
       {/* Cover */}
-      <div className="relative aspect-[16/9] overflow-hidden rounded-t-xl bg-neutral-50">
+      <div className="relative aspect-[16/9] overflow-hidden rounded-t-xl bg-white">
         {cover ? (
           <Image
             src={cover}
             alt={coverAlt}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-contain p-[clamp(16px,2vw,32px)]"
+            className="object-cover"
           />
         ) : (
           <div className="flex h-full items-center justify-center p-[clamp(16px,2vw,32px)]">
@@ -86,7 +86,11 @@ function ProjectCard({ project }) {
         {subtitle && (
           <p className="mb-[clamp(8px,1.2vw,14px)] line-clamp-2 text-[clamp(12px,1.3vw,16px)] text-neutral-600">{subtitle}</p>
         )}
-        {tag && <Chip>{tag}</Chip>}
+        {tag && (
+          <div className="flex flex-wrap gap-[clamp(6px,0.8vw,10px)]">
+            {Array.isArray(tag) ? tag.map((t, i) => <Chip key={i}>{t}</Chip>) : <Chip>{tag}</Chip>}
+          </div>
+        )}
       </div>
     </a>
   );
@@ -102,50 +106,45 @@ export default function Projects() {
   const projects = {
     personal: [
       {
-        title: "Discord's Coaching",
-        subtitle: "A coaching session for team management in Notion.",
-        tag: "Coaching",
-        href: "#",
-        cover: "/images/notion-cover.png", // or leave undefined to use fallback
+        title: "AI-Agent SQL Query Generator",
+        subtitle:
+          "NL → SQL with GroqCloud LLM. Node.js + PostgreSQL backend, React/Tailwind frontend. Query parsing & error handling boosted tester retention ~30%.",
+        tag: ["LLM", "Node.js", "PostgreSQL", "React"],
+        href: "https://database-ai-agent-frontend.onrender.com/", // add GitHub/demo
+        cover: "/images/projects/website.png",
       },
       {
-        title: "Ali Abdaal's Workspace",
-        subtitle: "A Notion workspace for business and content management.",
-        tag: "Notion Workspace",
-        href: "#",
-        cover: "/images/notion-cover.png",
+        title: "Travel Ginne — AI Trip Planner",
+        subtitle:
+          "Gemini-powered itineraries; Firebase auth; deployed on Vercel; Figma-designed UX. Lifted trial engagement ~40% during tests.",
+        tag: ["Gemini API", "Vercel", "Firebase"],
+        href: "https://travel-ginne.vercel.app/",
+        cover: "/images/projects/website.png",
       },
     ],
     freelance: [
       {
-        title: "Client CRM in Notion",
-        subtitle: "Pipeline + invoicing + docs with automation.",
-        tag: "Consulting",
-        href: "#",
-        cover: "/images/notion-cover.png",
+        title: "Berribot",
+        subtitle: "Revamped there whole webiste and increase monthly user retention by 64%",
+        tag: ["Consulting","SEO","Framer Motion","Tailwind CSS"],
+        href: "https://berribot.com/",
+        cover: "/images/projects/freelance.png",
       },
       {
-        title: "Growth Dashboard",
-        subtitle: "Marketing metrics + weekly reporting in Google Sheets.",
-        tag: "Analytics",
-        href: "#",
-        cover: "/images/notion-cover.png",
+        title: "Earthfields Blog",
+        subtitle: "Made there whole Blog Website and CMS too and integrated with there exisitng Admin Dashboard",
+        tag: ["Analytics","CMS","Admin Dashboard","Next.js","Tailwind CSS","SEO"],
+        href: "https://blog.earthfields.in/",
+        cover: "/images/projects/freelance.png",
       },
     ],
     oss: [
       {
-        title: "Resume Builder",
-        subtitle: "Open-source resume templates & HTML→PDF pipeline.",
+        title: "Material-UI",
+        subtitle: "Fixed the issue number #43572 and  #43626",
         tag: "Open Source",
-        href: "#",
-        cover: "/images/notion-cover.png",
-      },
-      {
-        title: "InterviewBee CLI",
-        subtitle: "Scripts to batch grade interviews with LLMs.",
-        tag: "Dev Tools",
-        href: "#",
-        cover: "/images/notion-cover.png",
+        href: "https://github.com/mui/material-ui/issues/43572#issuecomment-2343668928",
+        cover: "/images/projects/oss-2.png",
       },
     ],
   };
