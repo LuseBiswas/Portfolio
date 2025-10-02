@@ -36,10 +36,10 @@ import {
 function SkillCard({ icon: Icon, label }) {
   return (
     <div
-      className="flex items-center gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3 shadow-sm"
+      className="flex items-center gap-[clamp(8px,1.2vw,16px)] rounded-xl border border-neutral-200 bg-white px-[clamp(12px,1.6vw,20px)] py-[clamp(10px,1.4vw,16px)] shadow-sm"
     >
-      <Icon className="size-4 shrink-0 text-neutral-600" aria-hidden="true" />
-      <span className="text-[15px] text-[#33322e]">{label}</span>
+      <Icon className="shrink-0 text-neutral-600 w-[clamp(14px,1.6vw,20px)] h-[clamp(14px,1.6vw,20px)]" aria-hidden="true" />
+      <span className="text-[clamp(12px,1.4vw,18px)] text-[#33322e]">{label}</span>
     </div>
   );
 }
@@ -87,7 +87,7 @@ export default function Skills() {
       { label: "Figma",          icon: Palette },
       { label: "Notion",         icon: PenLine },
       { label: "Google Sheets",  icon: Table2 },
-      // (Webflow wasn’t in resume, keeping optional) 
+      // (Webflow wasn't in resume, keeping optional) 
       // { label: "Webflow",        icon: CalendarDays },
     ],
 
@@ -133,20 +133,21 @@ export default function Skills() {
   };
 
   return (
-    <section aria-labelledby="skills-heading" className="mt-[clamp(24px,3vw,48px)]">
+    <section aria-labelledby="skills-heading" className="mt-[clamp(32px,4.5vw,80px)]">
       <h2
         id="skills-heading"
-        className="font-dm-sans text-[clamp(22px,2.4vw,28px)] font-bold text-[#33322e]"
+        className="font-dm-sans font-semibold text-[#33322e]
+                           text-[clamp(18px,2.6vw,40px)]"
       >
         Skills
       </h2>
 
       {/* Tabs */}
-      <div className="mt-3">
+      <div className="mt-[clamp(12px,1.8vw,24px)]">
         <div
           role="tablist"
           aria-label="Skills categories"
-          className="flex items-center gap-6 border-b border-neutral-200"
+          className="flex items-center gap-[clamp(16px,2.4vw,32px)] border-b border-neutral-200"
         >
           {tabs.map((t, i) => {
             const Icon = t.icon;
@@ -162,12 +163,12 @@ export default function Skills() {
                 onClick={() => setActive(t.key)}
                 onKeyDown={(e) => onKeyDown(e, i)}
                 className={[
-                  "group relative -mb-px inline-flex items-center gap-2 py-3 text-sm",
+                  "group relative -mb-px inline-flex items-center gap-[clamp(6px,1vw,10px)] py-[clamp(10px,1.4vw,16px)] text-[clamp(12px,1.4vw,16px)]",
                   "text-[#33322e]",
                   isActive ? "font-medium" : "text-neutral-500 hover:text-[#33322e]"
                 ].join(" ")}
               >
-                <Icon className="size-4" aria-hidden="true" />
+                <Icon className="w-[clamp(14px,1.6vw,18px)] h-[clamp(14px,1.6vw,18px)]" aria-hidden="true" />
                 <span>{t.label}</span>
                 <span
                   className={[
@@ -191,9 +192,9 @@ export default function Skills() {
             id={`panel-${t.key}`}
             aria-labelledby={`tab-${t.key}`}
             hidden={!isActive}
-            className="pt-4"
+            className="pt-[clamp(16px,2.2vw,32px)]"
           >
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-[clamp(12px,1.8vw,20px)] grid-cols-[repeat(auto-fill,minmax(clamp(140px,18vw,220px),1fr))]">
               {data[t.key].map((item) => (
                 <SkillCard key={item.label} icon={item.icon} label={item.label} />
               ))}
