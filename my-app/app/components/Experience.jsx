@@ -132,39 +132,39 @@ export default function Experience() {
         location: "Mohali, India",
         companyUrl: "https://www.artesian.io/",
         bullets: [
-          "Designed and built a scalable intranet web app (HTML/CSS/JS, Python/Django) serving 1,500+ users.",
-          "Integrated Wagtail CMS for dynamic content workflows, improving admin efficiency by ~25%.",
-          "Deployed with Kamal + Docker for consistent environments and seamless scaling.",
-          "Currently building a Super-Ecommerce platform using MedusaJS + Django."
+          "Designed and built a scalable intranet web application (HTML/CSS/JS, Python/Django) serving 1,500+ users.",
+          "Integrated Wagtail CMS to streamline content workflows, improving admin efficiency by ~25%.",
+          "Deployed with Kamal and Docker to ensure consistent environments and seamless horizontal scaling",
+          "Currently building a next-gen ecommerce platform using MedusaJS + Django."
         ],
         badges: ["Django", "Wagtail", "Python", "JavaScript", "MedusaJS", "Docker", "Kamal"]
+      },
+      {
+        company: "Earthfields",
+        role: "Full-Stack Developer (Contract)",
+        period: "2023 - 2025",
+        location: "Remote . India",
+        companyUrl: "https://earthfields.in/",
+        bullets: [
+          "Built scalable web apps with Next.js and JavaScript, improving end-to-end performance by ~25% through optimized rendering and API integration",
+          "Designed and delivered Admin front- and back-end from scratch (Next.js, TypeScript, SQL), enabling reliable data management for 100+ administrators.",
+          "Partnered via GitLab and Postman to design/test RESTful APIs, increasing third-party integration efficiency by ~15%."
+        ],
+        badges: ["Next.js", "TypeScript", "JavaScript", "SQL", "REST APIs", "GitLab", "Postman"]
       },
       
       {
         company: "InterviewBee AI",
         role: "Founding Engineer",
-        period: "2024",
+        period: "2021 - 2023",
         location: "Remote · India",
         companyUrl: "https://interviewbee.ai/",
         bullets: [
-          "Built AI mock interview platform (voice + analytics) used by 150k+ users.",
-          "Reduced response latency by 65% via streaming + queueing.",
-          "Shipped admin tools for 100+ partners; improved session completion by 30%.",
+          "Launched an AI desktop assistant for live virtual sessions, achieving 100k+ users and strong retention.",
+          "Engineered a 65% latency reduction via streaming + queueing architecture, improving session completion rates.",
+          "Led end-to-end delivery of Mock Interview, Simulation, and Advanced Resume Builder features, boosting engagement ~30%.",
         ],
         badges: ["Next.js", "Node", "Postgres", "LLMs", "WebRTC"],
-      },
-      {
-        company: "Earthfields",
-        role: "Full-Stack Developer (Contract)",
-        period: "2023",
-        location: "Remote . India",
-        companyUrl: "https://earthfields.in/",
-        bullets: [
-          "Developed scalable software with Next.js and JavaScript; improved overall performance ~25% via efficient rendering and API integration.",
-          "Designed and built Admin frontend and backend from scratch (Next.js, TypeScript, SQL), enabling robust management for 100+ administrators.",
-          "Collaborated via GitLab and Postman to design/test RESTful APIs, increasing third-party integration efficiency by ~15%."
-        ],
-        badges: ["Next.js", "TypeScript", "JavaScript", "SQL", "REST APIs", "GitLab", "Postman"]
       },
     ],
     education: [
