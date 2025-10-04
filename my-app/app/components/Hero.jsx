@@ -1,39 +1,46 @@
+"use client";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { Calendar, X } from "lucide-react";
 
 export default function Hero() {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+
+  useEffect(() => {
+    if (isCalendlyOpen && window.Calendly) {
+      window.Calendly.initInlineWidget({
+        url: "https://calendly.com/riteshbiswasut",
+        parentElement: document.querySelector(".calendly-inline-widget"),
+      });
+    }
+  }, [isCalendlyOpen]);
   return (
     <section className="pt-[clamp(40px,6vw,80px)]">
-      {/* One container wraps heading + grid for perfect alignment */}
       <div className="mx-auto w-full max-w-[min(1600px,92vw)] px-[clamp(20px,6vw,128px)]">
         <h1
           id="portfolio-heading"
-          className="font-dm-sans font-extrabold text-[#33322e]
-                     text-[clamp(40px,6.8vw,84px)]"
+          className="font-dm-sans font-extrabold text-[#33322e] text-[clamp(40px,6.8vw,84px)]"
         >
           Portfolio
         </h1>
 
         <div className="mt-[clamp(20px,3.2vw,48px)]">
-          {/* Always 2 columns; proportional 1.1fr / 1fr */}
+          {/* Mobile: flex-col (STACK)  |  md+: grid 2 cols */}
           <div
-            className="grid items-start
-                       grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]
-                       gap-[clamp(16px,5vw,200px)]"
+            className="
+              flex flex-col
+              md:grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]
+              md:items-start
+              gap-[clamp(16px,5vw,200px)]
+            "
           >
-            {/* Left: Text */}
-            <div className="max-w-[clamp(520px,48vw,820px)]">
-              <h2
-                className="font-dm-sans font-semibold text-[#33322e]
-                           text-[clamp(18px,2.6vw,40px)]"
-              >
+            {/* Text first */}
+            <div className="order-1 md:order-none max-w-[clamp(520px,48vw,820px)] md:max-w-none">
+              <h2 className="font-dm-sans font-semibold text-[#33322e] text-[clamp(18px,2.6vw,40px)]">
                 Software Devloper
               </h2>
 
-              <p
-                className="mt-[clamp(8px,1.6vw,18px)] text-[#33322e]
-                           text-[clamp(12px,1.4vw,20px)]
-                           leading-[clamp(1.45,2.1vw,1.85)]"
-              >
+              <p className="mt-[clamp(8px,1.6vw,18px)] text-[#33322e] text-[clamp(12px,1.4vw,20px)] leading-[clamp(1.45,2.1vw,1.85)]">
                 I&apos;m a <strong>full-stack engineer</strong> specializing in{" "}
                 <strong>AI-driven web apps</strong> that scale. <br />
                 I ship fast, reliable products with{" "}
@@ -47,36 +54,76 @@ export default function Hero() {
               </p>
 
               <div className="mt-[clamp(14px,2.2vw,36px)]">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center rounded-md border border-black
+                <button
+                  onClick={() => setIsCalendlyOpen(true)}
+                  className="inline-flex items-center gap-[clamp(6px,1vw,10px)] rounded-md border border-black
                              px-[clamp(12px,1.8vw,22px)]
                              py-[clamp(8px,1.4vw,14px)]
                              text-[clamp(12px,1.35vw,18px)]
                              font-medium text-neutral-100 bg-neutral-800
-                             hover:bg-neutral-800 focus:outline-none focus:ring-2
+                             hover:bg-neutral-700 cursor-pointer transition-colors focus:outline-none focus:ring-2
                              focus:ring-neutral-400 focus:ring-offset-2"
                 >
+                  <Calendar className="w-[clamp(14px,1.6vw,18px)] h-[clamp(14px,1.6vw,18px)]" aria-hidden="true" />
                   Book a call
-                </a>
+                </button>
               </div>
             </div>
 
-            {/* Right: Image — flush to container's right edge */}
-            <div className="col-start-2 ml-auto justify-self-end pr-0 -translate-y-[clamp(0px,1.5vw,28px)]">
+            {/* Image second on mobile; right column on md+ */}
+            <div
+              className="
+                order-2 md:order-none
+                mt-[clamp(12px,4vw,28px)] md:mt-0
+                md:col-start-2 md:ml-auto md:justify-self-end md:pr-0
+                md:-translate-y-[clamp(0px,1.5vw,28px)]
+                self-center md:self-start
+              "
+            >
               <Image
                 src="/images/hero.png"
                 alt="Person working on a laptop"
                 width={1000}
                 height={1000}
                 priority
-                sizes="(max-width: 640px) 48vw, (max-width: 1024px) 42vw, 36vw"
-                className="block w-auto h-[clamp(160px,22vw,440px)] object-contain"
+                sizes="(max-width: 767px) 88vw, (max-width: 1024px) 42vw, 36vw"
+                className="
+                  block
+                  w-[min(88vw,560px)] md:w-auto
+                  h-[clamp(200px,36vw,440px)]
+                  object-contain
+                "
               />
             </div>
           </div>
         </div>
       </div>
+
+      {/* Calendly Modal */}
+      {isCalendlyOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30 p-4"
+          onClick={() => setIsCalendlyOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setIsCalendlyOpen(false)}
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-neutral-100 hover:bg-neutral-200 focus:outline-none focus:ring-2 focus:ring-neutral-400"
+              aria-label="Close"
+            >
+              <X className="w-6 h-6 text-neutral-700" />
+            </button>
+            <div
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/riteshbiswasut"
+              style={{ minWidth: "320px", height: "700px" }}
+            ></div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

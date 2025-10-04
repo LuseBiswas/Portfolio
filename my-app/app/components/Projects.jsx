@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import {
   FolderClosed,
   Tag,
@@ -20,18 +21,20 @@ function TabButton({ id, label, Icon, active, onClick, onKeyDown, tabRef }) {
       onClick={onClick}
       onKeyDown={onKeyDown}
       className={[
-        "group relative -mb-px inline-flex items-center gap-[clamp(6px,1vw,10px)] py-[clamp(10px,1.4vw,16px)] text-[clamp(12px,1.4vw,16px)]",
+        "relative -mb-px inline-flex items-center gap-[clamp(6px,1vw,10px)] py-[clamp(10px,1.4vw,16px)] text-[clamp(12px,1.4vw,16px)]",
+        "cursor-pointer",
         active ? "font-medium text-[#33322e]" : "text-neutral-500 hover:text-[#33322e]"
       ].join(" ")}
     >
       <Icon className="w-[clamp(14px,1.6vw,18px)] h-[clamp(14px,1.6vw,18px)]" aria-hidden />
       <span>{label}</span>
-      <span
-        className={[
-          "pointer-events-none absolute inset-x-0 -bottom-px h-[2px] transition-all",
-          active ? "bg-neutral-900" : "bg-transparent group-hover:bg-neutral-300"
-        ].join(" ")}
-      />
+      {active && (
+        <motion.span
+          layoutId="activeTabProjects"
+          className="absolute inset-x-0 -bottom-px h-[2px] bg-neutral-900"
+          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+        />
+      )}
     </button>
   );
 }
@@ -176,7 +179,7 @@ export default function Projects() {
 
       {/* Tabs */}
       <div className="mt-[clamp(12px,1.8vw,24px)] border-b border-neutral-200">
-        <div role="tablist" aria-label="Project categories" className="flex items-center gap-[clamp(16px,2.4vw,32px)]">
+        <div role="tablist" aria-label="Project categories" className="relative flex items-center gap-[clamp(16px,2.4vw,32px)]">
           {tabs.map((t, i) => (
             <TabButton
               key={t.key}

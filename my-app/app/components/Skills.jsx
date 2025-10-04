@@ -1,9 +1,10 @@
 "use client";
 import { useState, useRef } from "react";
+import { motion } from "framer-motion";
 import {
   // Tab icons
-  Boxes,        // Software
-  User,         // Expertise
+  PanelTop,        // Software
+  BadgeCheck,         // Expertise
   Languages,    // Languages (programming)
 
   // Software/tooling icons (Lucide)
@@ -30,8 +31,10 @@ import {
   Gitlab,           // GitLab
   Workflow,         // Postman (API workflows)
   Rocket,           // Deployment / DevOps
-  DatabaseZap,      // Supabase
+  DatabaseZap,
+  Boxes,        
 } from "lucide-react";
+
 
 function SkillCard({ icon: Icon, label }) {
   return (
@@ -46,8 +49,8 @@ function SkillCard({ icon: Icon, label }) {
 
 export default function Skills() {
   const tabs = [
-    { key: "software", label: "Software", icon: Boxes },
-    { key: "expertise", label: "Expertise", icon: User },
+    { key: "software", label: "Software", icon: PanelTop, },
+    { key: "expertise", label: "Expertise", icon: BadgeCheck },
     { key: "language", label: "Languages", icon: Languages }
   ];
 
@@ -147,7 +150,7 @@ export default function Skills() {
         <div
           role="tablist"
           aria-label="Skills categories"
-          className="flex items-center gap-[clamp(16px,2.4vw,32px)] border-b border-neutral-200"
+          className="relative flex items-center gap-[clamp(16px,2.4vw,32px)] border-b border-neutral-200"
         >
           {tabs.map((t, i) => {
             const Icon = t.icon;
@@ -163,19 +166,20 @@ export default function Skills() {
                 onClick={() => setActive(t.key)}
                 onKeyDown={(e) => onKeyDown(e, i)}
                 className={[
-                  "group relative -mb-px inline-flex items-center gap-[clamp(6px,1vw,10px)] py-[clamp(10px,1.4vw,16px)] text-[clamp(12px,1.4vw,16px)]",
-                  "text-[#33322e]",
+                  "relative -mb-px inline-flex items-center gap-[clamp(6px,1vw,10px)] py-[clamp(10px,1.4vw,16px)] text-[clamp(12px,1.4vw,16px)]",
+                  "text-[#33322e] cursor-pointer",
                   isActive ? "font-medium" : "text-neutral-500 hover:text-[#33322e]"
                 ].join(" ")}
               >
                 <Icon className="w-[clamp(14px,1.6vw,18px)] h-[clamp(14px,1.6vw,18px)]" aria-hidden="true" />
                 <span>{t.label}</span>
-                <span
-                  className={[
-                    "pointer-events-none absolute inset-x-0 -bottom-px h-[2px] transition-all",
-                    isActive ? "bg-neutral-900" : "bg-transparent group-hover:bg-neutral-300"
-                  ].join(" ")}
-                />
+                {isActive && (
+                  <motion.span
+                    layoutId="activeTab"
+                    className="absolute inset-x-0 -bottom-px h-[2px] bg-neutral-900"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </button>
             );
           })}
