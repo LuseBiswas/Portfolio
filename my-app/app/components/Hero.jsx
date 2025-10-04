@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Calendar, X } from "lucide-react";
+import { Calendar, X, Github, Linkedin } from "lucide-react";
 
 export default function Hero() {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
@@ -53,20 +53,51 @@ export default function Hero() {
                 AI, Earthfields, and Artesian.
               </p>
 
-              <div className="mt-[clamp(14px,2.2vw,36px)]">
+              <div className="mt-[clamp(14px,2.2vw,36px)] flex items-center gap-[clamp(6px,0.8vw,10px)]">
+                {/* Book a Call Button - Initially Expanded */}
                 <button
                   onClick={() => setIsCalendlyOpen(true)}
-                  className="inline-flex items-center gap-[clamp(6px,1vw,10px)] rounded-md border border-black
+                  className="inline-flex items-center justify-center gap-[clamp(6px,1vw,10px)] rounded-md border border-black
                              px-[clamp(12px,1.8vw,22px)]
-                             py-[clamp(8px,1.4vw,14px)]
                              text-[clamp(12px,1.35vw,18px)]
                              font-medium text-neutral-100 bg-neutral-800
                              hover:bg-neutral-700 cursor-pointer transition-colors focus:outline-none focus:ring-2
-                             focus:ring-neutral-400 focus:ring-offset-2"
+                             focus:ring-neutral-400 focus:ring-offset-2
+                             h-[clamp(44px,5vw,56px)]"
                 >
-                  <Calendar className="w-[clamp(14px,1.6vw,18px)] h-[clamp(14px,1.6vw,18px)]" aria-hidden="true" />
-                  Book a call
+                  <Calendar className="w-[clamp(14px,1.6vw,18px)] h-[clamp(14px,1.6vw,18px)] shrink-0" aria-hidden="true" />
+                  <span className="whitespace-nowrap">Book a call</span>
                 </button>
+
+                {/* GitHub Button - Square */}
+                <a
+                  href="https://github.com/LuseBiswas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-md border border-black
+                             w-[clamp(44px,5vw,56px)] h-[clamp(44px,5vw,56px)]
+                             text-neutral-100 bg-neutral-800
+                             hover:bg-neutral-700 cursor-pointer transition-colors focus:outline-none focus:ring-2
+                             focus:ring-neutral-400 focus:ring-offset-2"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-[clamp(14px,1.6vw,18px)] h-[clamp(14px,1.6vw,18px)]" aria-hidden="true" />
+                </a>
+
+                {/* LinkedIn Button - Square */}
+                <a
+                  href="https://www.linkedin.com/in/ritesh-biswas/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-md border border-black
+                             w-[clamp(44px,5vw,56px)] h-[clamp(44px,5vw,56px)]
+                             text-neutral-100 bg-neutral-800
+                             hover:bg-neutral-700 cursor-pointer transition-colors focus:outline-none focus:ring-2
+                             focus:ring-neutral-400 focus:ring-offset-2"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-[clamp(14px,1.6vw,18px)] h-[clamp(14px,1.6vw,18px)]" aria-hidden="true" />
+                </a>
               </div>
             </div>
 
