@@ -101,8 +101,8 @@ function ProjectCard({ project }) {
 
 export default function Projects() {
   const tabs = [
-    { key: "personal",   label: "Personal",   icon: Box },
     { key: "freelance",  label: "Freelancing",icon: Briefcase },
+    { key: "personal",   label: "Personal",   icon: Box },
     { key: "oss",        label: "Open Source",icon: GitBranch },
   ];
 
@@ -126,6 +126,20 @@ export default function Projects() {
       },
     ],
     freelance: [
+      {
+        title: "Design Responsible",
+        subtitle: "Made this whole website with optmization of the video to make the website search engine friendly",
+        tag: ["Next.js","SEO","Framer Motion","Tailwind CSS","Video Optimization"],
+        href: "https://beyondwebsites.designresponsible.com/",
+        cover: "/images/projects/freelance.png",
+      },
+      {
+        title: "Earthfields",
+        subtitle: "Revamped there whole webiste with new modern and sleek look",
+        tag: ["Next.js","SEO","Framer Motion","Tailwind CSS","Figma"],
+        href: "https://www.earthfields.in/",
+        cover: "/images/projects/freelance.png",
+      },
       {
         title: "Berribot",
         subtitle: "Revamped there whole webiste and increase monthly user retention by 64%",
@@ -152,7 +166,7 @@ export default function Projects() {
     ],
   };
 
-  const [active, setActive] = useState("personal");
+  const [active, setActive] = useState("freelance");
   const tabRefs = useRef([]);
 
   const onKeyDown = (e, index) => {
