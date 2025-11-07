@@ -160,26 +160,46 @@ export default function RecentActivities() {
             )}
 
             {/* Carousel Container */}
-            <div className="overflow-hidden">
-              <AnimatePresence initial={false} custom={direction} mode="wait">
-                <motion.div
-                  key={currentIndex}
-                  custom={direction}
-                  variants={slideVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{
-                    x: { type: "spring", stiffness: 300, damping: 30 },
-                    opacity: { duration: 0.2 }
-                  }}
-                  className="grid gap-[clamp(16px,2.4vw,32px)] grid-cols-2"
-                >
-                  <ActivityCard {...activities[currentIndex]} />
-                  <ActivityCard {...activities[(currentIndex + 1) % activities.length]} />
-                </motion.div>
-              </AnimatePresence>
-            </div>
+            <div className="overflow-hidden relative">
+  <AnimatePresence initial={false} custom={direction}>
+    <motion.div
+      key={currentIndex}
+      custom={direction}
+      variants={{
+        enter: (direction) => ({
+          x: direction > 0 ? 300 : -300,
+          opacity: 0,
+          position: "absolute",
+          width: "100%",
+        }),
+        center: {
+          x: 0,
+          opacity: 1,
+          position: "relative",
+          width: "100%",
+        },
+        exit: (direction) => ({
+          x: direction < 0 ? 300 : -300,
+          opacity: 0,
+          position: "absolute",
+          width: "100%",
+        }),
+      }}
+      initial="enter"
+      animate="center"
+      exit="exit"
+      transition={{
+        x: { type: "tween", duration: 0.4, ease: "easeInOut" },
+        opacity: { duration: 0.3 },
+      }}
+      className="grid gap-[clamp(16px,2.4vw,32px)] grid-cols-2"
+    >
+      <ActivityCard {...activities[currentIndex]} />
+      <ActivityCard {...activities[(currentIndex + 1) % activities.length]} />
+    </motion.div>
+  </AnimatePresence>
+</div>
+
           </div>
         ) : (
           <div className="mt-[clamp(16px,2.2vw,32px)] grid gap-[clamp(16px,2.4vw,32px)] grid-cols-2">
@@ -216,24 +236,44 @@ export default function RecentActivities() {
             )}
 
             {/* Carousel Container */}
-            <div className="overflow-hidden">
-              <AnimatePresence initial={false} custom={direction} mode="wait">
-                <motion.div
-                  key={currentIndex}
-                  custom={direction}
-                  variants={slideVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{
-                    x: { type: "spring", stiffness: 300, damping: 30 },
-                    opacity: { duration: 0.2 }
-                  }}
-                >
-                  <ActivityCard {...activities[currentIndex]} />
-                </motion.div>
-              </AnimatePresence>
-            </div>
+            <div className="overflow-hidden relative">
+  <AnimatePresence initial={false} custom={direction}>
+    <motion.div
+      key={currentIndex}
+      custom={direction}
+      variants={{
+        enter: (direction) => ({
+          x: direction > 0 ? 300 : -300,
+          opacity: 0,
+          position: "absolute",
+          width: "100%",
+        }),
+        center: {
+          x: 0,
+          opacity: 1,
+          position: "relative",
+          width: "100%",
+        },
+        exit: (direction) => ({
+          x: direction < 0 ? 300 : -300,
+          opacity: 0,
+          position: "absolute",
+          width: "100%",
+        }),
+      }}
+      initial="enter"
+      animate="center"
+      exit="exit"
+      transition={{
+        x: { type: "tween", duration: 0.4, ease: "easeInOut" },
+        opacity: { duration: 0.3 },
+      }}
+    >
+      <ActivityCard {...activities[currentIndex]} />
+    </motion.div>
+  </AnimatePresence>
+</div>
+
           </div>
         ) : (
           <div className="mt-[clamp(16px,2.2vw,32px)]">
