@@ -71,13 +71,7 @@ export default function RecentActivities() {
       type: "LinkedIn",
       embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7389577113324085248",
       date: "Nov 5, 2025",
-    },
-    {
-      title: "Building in public",
-      type: "YouTube",
-      embedUrl: "https://www.youtube.com/embed/VIDEO_ID",
-      date: "Nov 3, 2025",
-    },
+    }
     // Add more activities here
   ];
 
